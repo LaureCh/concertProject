@@ -30,7 +30,9 @@ class ConcertController extends AbstractController
     public function list(string $name): Response
     {
         return $this->render('concert/list.html.twig', [
-            'name' => $name
-        ]);
+            'name' => $name,
+            'concerts' => ['Dionysos', 'Chapelier Fou']
+            ]
+        );
     }
 }
