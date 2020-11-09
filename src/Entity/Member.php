@@ -44,7 +44,7 @@ class Member
 
     /**
      * @ORM\ManyToOne(targetEntity=Band::class, inversedBy="members")
-     * @ORM\JoinColumn(nullable=false)
+     * @ORM\JoinColumn(nullable=true)
      */
     private $band;
 

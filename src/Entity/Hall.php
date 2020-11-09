@@ -34,14 +34,10 @@ class Hall
 
     /**
      * @ORM\ManyToOne(targetEntity=ConcertHall::class, inversedBy="halls")
-     * @ORM\JoinColumn(nullable=false)
+     * @ORM\JoinColumn(nullable=true)
      */
     private $concertHall;
 
-    /**
-     * @ORM\OneToOne(targetEntity=Show::class, mappedBy="hall", cascade={"persist", "remove"})
-     */
-    private $hall;
 
     public function getId(): ?int
     {
@@ -96,20 +92,4 @@ class Hall
         return $this;
     }
 
-    public function getHall(): ?Show
-    {
-        return $this->hall;
-    }
-
-    public function setHall(Show $hall): self
-    {
-        $this->hall = $hall;
-
-        // set the owning side of the relation if necessary
-        if ($hall->getHall() !== $this) {
-            $hall->setHall($this);
-        }
-
-        return $this;
-    }
 }
