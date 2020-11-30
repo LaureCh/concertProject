@@ -40,7 +40,7 @@ class ConcertHall
     private $city;
 
     /**
-     * @ORM\OneToMany(targetEntity=hall::class, mappedBy="concertHall")
+     * @ORM\OneToMany(targetEntity=Hall::class, mappedBy="concertHall")
      */
     private $halls;
 
@@ -103,14 +103,14 @@ class ConcertHall
     }
 
     /**
-     * @return Collection|hall[]
+     * @return Collection|Hall[]
      */
     public function getHalls(): Collection
     {
         return $this->halls;
     }
 
-    public function addHall(hall $hall): self
+    public function addHall(Hall $hall): self
     {
         if (!$this->halls->contains($hall)) {
             $this->halls[] = $hall;
@@ -120,7 +120,7 @@ class ConcertHall
         return $this;
     }
 
-    public function removeHall(hall $hall): self
+    public function removeHall(Hall $hall): self
     {
         if ($this->halls->removeElement($hall)) {
             // set the owning side to null (unless already changed)

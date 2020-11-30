@@ -13,8 +13,10 @@ class ConcertController extends AbstractController
      */
     public function index(): Response
     {
+        $repository = $this->getDoctrine()->getRepository(Concert::class);
         return $this->render('concert/index.html.twig', [
             'controller_name' => 'ConcertController',
+            'concert_list' => $repository->findAll()
         ]);
     }
 

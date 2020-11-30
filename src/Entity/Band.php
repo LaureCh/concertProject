@@ -45,7 +45,7 @@ class Band
     private $lastAlbumName;
 
     /**
-     * @ORM\OneToMany(targetEntity=member::class, mappedBy="band", orphanRemoval=true)
+     * @ORM\OneToMany(targetEntity=Member::class, mappedBy="band", orphanRemoval=true)
      */
     private $members;
 
@@ -126,14 +126,14 @@ class Band
     }
 
     /**
-     * @return Collection|member[]
+     * @return Collection|Member[]
      */
     public function getMembers(): Collection
     {
         return $this->members;
     }
 
-    public function addMember(member $member): self
+    public function addMember(Member $member): self
     {
         if (!$this->members->contains($member)) {
             $this->members[] = $member;
@@ -143,7 +143,7 @@ class Band
         return $this;
     }
 
-    public function removeMember(member $member): self
+    public function removeMember(Member $member): self
     {
         if ($this->members->removeElement($member)) {
             // set the owning side to null (unless already changed)

@@ -11,6 +11,12 @@ use App\Entity\Member;
  */
 class MemberFixtures extends Fixture
 {
+    public const KORN_1 = 'a1';
+    public const KORN_2 = 'a2';
+    public const KORN_3 = 'a3';
+    public const KORN_4 = 'a4';
+    public const KORN_5 = 'a5';
+
     /**
      * @param ObjectManager $manager
      */
@@ -23,17 +29,6 @@ class MemberFixtures extends Fixture
             ->setBirthDate(\DateTime::createFromFormat("d/m/Y", '18/01/1971'))
             ->setPicture('jonathanDavies.jpg');
         $manager->persist($a1);
-
-        $manager->flush();
-
-
-
-
-
-
-
-
-
 
         $a2 = new Member();
         $a2->setName('Reginald')

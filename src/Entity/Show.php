@@ -30,13 +30,13 @@ class Show
     private $tourName;
 
     /**
-     * @ORM\OneToOne(targetEntity=hall::class, inversedBy="hall", cascade={"persist", "remove"})
+     * @ORM\OneToOne(targetEntity=Hall::class, inversedBy="Hall", cascade={"persist", "remove"})
      * @ORM\JoinColumn(nullable=false)
      */
     private $hall;
 
     /**
-     * @ORM\ManyToMany(targetEntity=band::class, inversedBy="concerts")
+     * @ORM\ManyToMany(targetEntity=Band::class, inversedBy="concerts")
      */
     private $bands;
 
@@ -74,12 +74,12 @@ class Show
         return $this;
     }
 
-    public function getHall(): ?hall
+    public function getHall(): ?Hall
     {
         return $this->hall;
     }
 
-    public function setHall(hall $hall): self
+    public function setHall(Hall $hall): self
     {
         $this->hall = $hall;
 
@@ -87,14 +87,14 @@ class Show
     }
 
     /**
-     * @return Collection|band[]
+     * @return Collection|Band[]
      */
     public function getBands(): Collection
     {
         return $this->bands;
     }
 
-    public function addBand(band $band): self
+    public function addBand(Band $band): self
     {
         if (!$this->bands->contains($band)) {
             $this->bands[] = $band;
@@ -103,7 +103,7 @@ class Show
         return $this;
     }
 
-    public function removeBand(band $band): self
+    public function removeBand(Band $band): self
     {
         $this->bands->removeElement($band);
 
