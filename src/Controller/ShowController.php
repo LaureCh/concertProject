@@ -14,7 +14,7 @@ class ShowController extends AbstractController
      */
     public function index(): Response
     {
-        $repository = $this->getDoctrine()->getRepository(Concert::class);
+        $repository = $this->getDoctrine()->getRepository(Show::class);
         return $this->render('concert/index.html.twig', [
             'controller_name' => 'ConcertController',
             'concert_list' => $repository->findAll()
